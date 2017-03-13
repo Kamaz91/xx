@@ -1,10 +1,16 @@
 <?php
-  //ini_set('display_errors', 1);
+  ini_set('display_errors', 1);
   include('engine.php');
-  if($_SESSION){
 
+  if($_GET['module'] == 'register'){
+    loadModule('register');
   }
   else{
-    loadModule('login');
+    if($_SESSION){
+      loadModule('main');
+    }
+    else{
+      loadModule('login');
+    }
   }
 ?>

@@ -1,10 +1,12 @@
 <?php
-  include('./lib/php/siBase.php');
+  set_include_path(__DIR__);
+
+  include('lib/php/siBase.php');
 
   $_MODULES = array();
 
   function loadModule($name){
-    include('./modules/'.$name.'.php');
+    include('modules/'.$name.'.php');
   }
   function listModules(){
     global $_MODULES;
