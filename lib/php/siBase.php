@@ -7,10 +7,10 @@ $_SQL[0] = array(
   'charset'=>'UTF8',
   'type' => 'mysql',
   'host' => 'localhost',
-  'user' => 'user',
-  'password' => 'password',
-  'database' => 'base',
-  'prefix' => 'si_',
+  'user' => 'esim',
+  'password' => 'superpass',
+  'database' => 'mydb',
+  'prefix' => '',
 );
 
  ////  Definicje baz danych  A
