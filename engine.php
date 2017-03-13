@@ -7,10 +7,12 @@
     include('./modules/'.$name.'.php');
   }
   function listModules(){
+    global $_MODULES;
+
     $query = sql('SELECT `name` FROM :table WHERE `enabled` = :enabled', 'modules', array('enabled' => 1));
     if($query){
       foreach($query as $q){
-        $_MODULES = $q['name'];
+        $_MODULES[] = $q['name'];
       }
     }
     else{
