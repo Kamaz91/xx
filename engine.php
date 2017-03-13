@@ -14,7 +14,7 @@
       }
     }
     else{
-      die('error');
+      die('Error: Couldn\'t load modules');
     }
   }
 ?>
