@@ -25,7 +25,7 @@ function sql_connect($n = 0)
     $_MAIN['db'][$n] = array();
     $_MAIN['db'][$n]['link'] = new PDO($_SQL[$n]['type'].':host='.$_SQL[$n]['host'].';dbname='.$_SQL[$n]['database'], $_SQL[$n]['user'], $_SQL[$n]['password']);
     $_MAIN['db'][$n]['link']->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-    $_MAIN['db'][$n]['link']->query('SET NAMES '.isset($_SQL[$n]['charset'])?$_SQL[$n]['charset']:'UTF8');
+    //$_MAIN['db'][$n]['link']->query('SET NAMES '.isset($_SQL[$n]['charset'])?$_SQL[$n]['charset']:'UTF8');
     $_MAIN['db'][$n]['connect'] = true;
   }
   catch(PDOException $e)
