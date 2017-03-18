@@ -31,7 +31,7 @@
   }
   function loadSettings(){
     global $_SETTINGS;
-    $query - sql('SELECT `name`, `value` FROM :table', 'settings');
+    $query = sql('SELECT `name`, `value` FROM :table WHERE 1', 'settings'); // WHERE 1... gotta love PDO right?
     if($query){
       foreach($query as $q){
         $_SETTINGS[$q['name']] = $q['value'];
