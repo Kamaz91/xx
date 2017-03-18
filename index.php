@@ -2,6 +2,8 @@
   ini_set('display_errors', 1);
   include('engine.php');
 
+  include('css/loadCSS.html');
+
   listModules();
 
   if(isset($_GET['module'])){
