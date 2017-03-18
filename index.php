@@ -6,6 +6,8 @@
 
   listModules();
 
+  print '<div class="container">';
+
   if(isset($_GET['module'])){
     loadModule($_GET['module']);
   }
@@ -17,4 +19,6 @@
       loadModule('login');
     }
   }
+
+  print '</div>';
 ?>
