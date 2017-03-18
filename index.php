@@ -7,6 +7,7 @@
   listModules();
   loadSettings();
 
+  include('modulesHTML/menu.html');
   print '<div class="container">';
 
   if(isset($_GET['module'])){
@@ -20,6 +21,6 @@
       loadModule('login');
     }
   }
-
   print '</div>';
+  include('modulesHTML/footer.html');
 ?>
