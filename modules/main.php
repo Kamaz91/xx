@@ -12,7 +12,7 @@
       print '<div class="shout">';
 
       print '</div>';
-      print '<div class="quickNews">';
+      print '<div class="quickInfo">';
 
       print '</div>';
     print '</div>';
