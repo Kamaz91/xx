@@ -10,10 +10,10 @@
   function loadModule($name){
     global $_MODULES;
     if(in_array($name, $_MODULES)){
-      include('modules/'.$name.'.php');
+      include('modules/'.strtolower($name).'.php');
     }
     else{
-      print 'error module not found';
+      include('modulesHTML/error.html');
     }
   }
   function listModules(){
