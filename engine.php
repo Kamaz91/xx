@@ -3,6 +3,8 @@
 
   include('lib/php/siBase.php');
 
+  session_start();
+
   $_MODULES = array();
 
   function loadModule($name){
