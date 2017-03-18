@@ -2,11 +2,13 @@
   ini_set('display_errors', 1);
   include('engine.php');
 
-  if($_GET['module'] == 'register'){
-    loadModule('register');
+  listModules();
+
+  if(isset($_GET['module'])){
+    loadModule($_GET['module']);
   }
   else{
-    if($_SESSION){
+    if(isset($_SESSION['ID'])){
       loadModule('main');
     }
     else{
