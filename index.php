@@ -5,6 +5,7 @@
   include('css/loadCSS.html');
 
   listModules();
+  loadSettings();
 
   print '<div class="container">';
 

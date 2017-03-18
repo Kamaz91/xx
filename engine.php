@@ -6,6 +6,7 @@
   session_start();
 
   $_MODULES = array();
+  $_SETTINGS = array();
 
   function loadModule($name){
     global $_MODULES;
@@ -18,7 +19,6 @@
   }
   function listModules(){
     global $_MODULES;
-
     $query = sql('SELECT `name` FROM :table WHERE `enabled` = :enabled', 'modules', array('enabled' => 1));
     if($query){
       foreach($query as $q){
@@ -27,6 +27,18 @@
     }
     else{
       die('Error: Couldn\'t load modules');
+    }
+  }
+  function loadSettings(){
+    global $_SETTINGS;
+    $query - sql('SELECT `name`, `value` FROM :table', 'settings');
+    if($query){
+      foreach($query as $q){
+        $_SETTINGS[$q['name']] = $q['value'];
+      }
+    }
+    else{
+      die('Error: Couldn\'t load settings');
     }
   }
 ?>
