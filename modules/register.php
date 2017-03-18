@@ -7,10 +7,12 @@
       include('modulesHTML/passShort.html');
     }
     else{
-      $register = sql('INSERT INTO :table (`nick`,`email`,`pass`) VALUES (:nick,:email,:pass)','users',array(
+      global $_SETTINGS;
+      $register = sql('INSERT INTO :table (`nick`,`email`,`pass`,`day`) VALUES (:nick,:email,:pass,:day)','users',array(
         'nick' => $_POST['nick'],
         'email' => $_POST['email'],
-        'pass' => hash('sha256', $_POST['pass'])
+        'pass' => hash('sha256', $_POST['pass']),
+        'day' => $_SETTINGS['day']
       ));
       if($register){
         include('modulesHTML/regSuccess.html');
