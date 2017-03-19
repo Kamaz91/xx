@@ -1,3 +1,19 @@
 .menu{
   position: relative;
+  margin: auto;
+  padding: 10px 3px 10px 3px;
+}
+.menuItem{
+  position: relative;
+  display: inline-block;
+  margin: auto;
+  width: 80px;
+  height: 30px;
+  transition: 200ms;
+  text-align: center;
+  text-anchor: middle;
+}
+.menuItem:hover{
+  color: #4780B9;
+  cursor: pointer;
 }
