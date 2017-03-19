@@ -41,4 +41,21 @@
       die('Error: Couldn\'t load settings');
     }
   }
+  function maintenanceCheck(){
+    $query = sql('SELECT `value` FROM :table WHERE `name` = :name','settings',array(
+      'name' => 'maintenance'
+    ));
+    if($query){
+      if($query[0]['value'] == 1){
+        include('modulesHTML/maintenance.html');
+        return true;
+      }
+      else{
+        return false;
+      }
+    }
+    else{
+      die('Error: Couldn\'t check maintenance status');
+    }
+  }
 ?>

@@ -9,16 +9,17 @@
 
   print '<div class="container">';
   include('modulesHTML/menu.html');
-
-  if(isset($_GET['module'])){
-    loadModule($_GET['module']);
-  }
-  else{
-    if(isset($_SESSION['ID'])){
-      loadModule('main');
+  if(maintenanceCheck() == false){
+    if(isset($_GET['module'])){
+      loadModule($_GET['module']);
     }
     else{
-      loadModule('login');
+      if(isset($_SESSION['ID'])){
+        loadModule('main');
+      }
+      else{
+        loadModule('login');
+      }
     }
   }
 
