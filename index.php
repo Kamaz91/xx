@@ -7,8 +7,8 @@
   listModules();
   loadSettings();
 
-  print '<div class="container">';
   include('modulesHTML/menu.html');
+  print '<div class="container">';
   if(maintenanceCheck() == false){
     if(isset($_GET['module'])){
       loadModule($_GET['module']);

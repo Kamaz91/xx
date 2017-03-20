@@ -1,14 +1,18 @@
 .menu{
-  position: relative;
-  margin: auto;
-  padding: 10px 3px 10px 3px;
+  position: fixed;
+  width: 100%;
+  top:0px;
+  left:0px;
+  padding: 5px 3px 5px 3px;
+  background: #202020;
+  color: #DADADA;
 }
 .menuItem{
   position: relative;
   display: inline-block;
   margin: auto;
   width: 80px;
-  height: 30px;
+  height: 25px;
   transition: 200ms;
   text-align: center;
   text-anchor: middle;
