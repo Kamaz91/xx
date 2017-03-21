@@ -19,7 +19,7 @@
     print '</div>';
   }
   else{
-    include('modulesHTML/loginError.html');
+    error('loginError.html');
     loadModule('login');
   }
 ?>

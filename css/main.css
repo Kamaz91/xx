@@ -29,3 +29,9 @@ body{
   min-height: 300px;
   vertical-align: top;
 }
+.login{
+  border: 1px solid #34812D;
+  margin: auto;
+  position: relative;
+  top: 30px;
+}

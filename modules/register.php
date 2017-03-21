@@ -1,10 +1,10 @@
 <?php
   if(isset($_POST['nick']) && isset($_POST['email']) && isset($_POST['pass'])){
     if(strlen($_POST['nick']) < 3){
-      include('modulesHTML/nickShort.html');
+      error('nickShort.html');
     }
     elseif(strlen($_POST['pass']) < 5){
-      include('modulesHTML/passShort.html');
+      error('passShort.html');
     }
     else{
       global $_SETTINGS;
@@ -18,12 +18,12 @@
         include('modulesHTML/regSuccess.html');
       }
       else{
-        include('modulesHTML/unableToReg.html');
+        error('unableToReg.html');
       }
     }
   }
   elseif(isset($_POST['nick']) || isset($_POST['email']) || isset($_POST['pass'])){
-    include('modulesHTML/error.html');
+    error();
   }
   else{
     include('modulesHTML/register.html');

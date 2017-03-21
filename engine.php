@@ -8,13 +8,16 @@
   $_MODULES = array();
   $_SETTINGS = array();
 
+  function error($n = 'error.html'){
+    include('modulesHTML/error/'.$n);
+  }
   function loadModule($name){
     global $_MODULES;
     if(in_array($name, $_MODULES)){
       include('modules/'.$name.'.php');
     }
     else{
-      include('modulesHTML/error.html');
+      error();
     }
   }
   function listModules(){
@@ -26,7 +29,7 @@
       }
     }
     else{
-      die('Error: Couldn\'t load modules');
+      error();
     }
   }
   function loadSettings(){
@@ -38,7 +41,7 @@
       }
     }
     else{
-      die('Error: Couldn\'t load settings');
+      error();
     }
   }
   function maintenanceCheck(){
@@ -47,7 +50,7 @@
     ));
     if($query){
       if($query[0]['value'] == 1){
-        include('modulesHTML/maintenance.html');
+        error('maintenance.html');
         return true;
       }
       else{
@@ -55,7 +58,7 @@
       }
     }
     else{
-      die('Error: Couldn\'t check maintenance status');
+      error();
     }
   }
 ?>
