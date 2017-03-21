@@ -7,9 +7,27 @@ body{
   margin: auto;
   padding: 4px 6px 4px 6px;
   width: 80%;
-  min-height: 600px;
   position: relative;
   top: 90px;
   background: #202020;
   color: #DADADA;
+  z-index: 1;
+}
+.main{
+  display: inline-block;
+  float: right;
+  width: 83%;
+}
+.stats{
+  display: inline-block;
+  float: left;
+  width: 17%;
+  min-height: 600px;
+  vertical-align: top;
+}
+.news, .battles, .shout, .quickInfo{
+  display: inline-block;
+  width: 50%;
+  min-height: 300px;
+  vertical-align: top;
 }
