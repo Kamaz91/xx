@@ -3,8 +3,7 @@
   bottom: 0%;
   width: 100%;
   height: 30px;
-  padding: 0px 3px 10px 3px;
   text-align: center;
   text-anchor: middle;
-  vertical-align: bottom;
+  margin-top: 20px;
 }
