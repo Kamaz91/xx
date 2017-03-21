@@ -15,12 +15,10 @@ body{
 }
 .main{
   display: inline-block;
-  float: right;
   width: 83%;
 }
 .stats{
   display: inline-block;
-  float: left;
   width: 17%;
   min-height: 600px;
   vertical-align: top;
