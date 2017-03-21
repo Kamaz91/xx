@@ -8,11 +8,12 @@
     }
     else{
       global $_SETTINGS;
-      $register = sql('INSERT INTO :table (`nick`,`email`,`pass`,`day`) VALUES (:nick,:email,:pass,:day)','users',array(
+      $register = sql('INSERT INTO :table (`nick`,`email`,`pass`,`day`,`country`) VALUES (:nick,:email,:pass,:day,:country)','users',array(
         'nick' => $_POST['nick'],
         'email' => $_POST['email'],
         'pass' => hash('sha256', $_POST['pass']),
-        'day' => $_SETTINGS['day']
+        'day' => $_SETTINGS['day'],
+        'country' => $_POST['country']
       ));
       if($register){
         include('modulesHTML/regSuccess.html');

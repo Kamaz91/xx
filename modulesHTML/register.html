@@ -2,5 +2,18 @@
         Nick: <input type="text" name="nick"><br>
         E-Mail: <input type="text" name="email"><br>
         Password: <input type="password" name="pass"><br>
+        Country: <select name="country">
+        <?php
+          $query = sql('SELECT `id`, `name` FROM :table WHERE 1','country');
+          if($query){
+            foreach($query as $q){
+              print '<option value='.$q['id'].'>'.$q['name'].'</option>';
+            }
+          }
+          else{
+            error();
+          }
+        ?>
+        </select><br>
         <input type="submit" value="Ok">
 </form>
