@@ -3,6 +3,7 @@
   include('engine.php');
 
   include('css/loadCSS.html');
+  print '<script src="lib/js/siTools.js"></script>';
 
   listModules();
   loadSettings();
