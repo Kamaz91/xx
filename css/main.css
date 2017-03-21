@@ -37,7 +37,7 @@ body{
   border: 1px solid #34812D;
   margin: auto;
   position: relative;
-  width: 300px;
+  width: 30%;
   margin-top: 10px;
   padding: 5px;
 }
@@ -59,8 +59,15 @@ span.right input{
   width: 100%;
 }
 .success{
-  background: red;
+  background: #31B404;
 }
 .error{
-  background: green;
+  background: #FA5858;
+}
+.error, .success{
+  width: 30%;
+  text-align: center;
+  margin: auto;
+  text-anchor: middle;
+  padding: 3px;
 }
