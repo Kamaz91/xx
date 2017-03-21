@@ -11,7 +11,7 @@
   function loadModule($name){
     global $_MODULES;
     if(in_array($name, $_MODULES)){
-      include('modules/'.strtolower($name).'.php');
+      include('modules/'.$name.'.php');
     }
     else{
       include('modulesHTML/error.html');
