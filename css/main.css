@@ -33,7 +33,7 @@ body{
   min-height: 300px;
   vertical-align: top;
 }
-.login{
+.login, .register{
   border: 1px solid #34812D;
   margin: auto;
   position: relative;
