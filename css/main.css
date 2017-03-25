@@ -15,16 +15,16 @@ body{
 }
 .matrioshka{
   position: relative;
-  width: 100%;
+  width: 83%;
+  display: inline-block;
 }
 .main{
   display: inline-block;
-  width: 83%;
+  width: 100%;
 }
 .stats{
   display: inline-block;
   width: 17%;
-  min-height: 600px;
   vertical-align: top;
 }
 .news, .battles, .shout, .quickInfo{
@@ -70,4 +70,28 @@ span.right input{
   margin: auto;
   text-anchor: middle;
   padding: 3px;
+}
+.manage, .company{
+  border: 1px solid #34812D;
+  width: 98%;
+  position: relative;
+  display: inline-block;
+  margin: 2px;
+  padding: 3px;
+}
+.ownerInfo, .companyInfo{
+  position: relative;
+  display: inline-block;
+  width: 50%;
+}
+.workers table, .workers td, .workers tr{
+  color: #DADADA;
+  border: 1px solid #DADADA;
+}
+.workers{
+  margin: auto;
+  width: 100%;
+}
+.workers table{
+  margin-left: 50px;
 }
