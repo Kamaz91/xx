@@ -1,8 +1,5 @@
 <?php
   if(isset($_SESSION['ID'])){
-    print '<div class="stats">';
-      loadModule('stats');
-    print '</div>';
     print '<div class="main">';
       print '<div class="news">';
         loadModule('newsList');
