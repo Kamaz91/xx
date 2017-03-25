@@ -10,6 +10,7 @@
 
   include('modulesHTML/menu.html');
   print '<div class="container">';
+  loadModule('stats');
     print '<div class="matrioshka">';
       if(maintenanceCheck() == false){
         if(isset($_GET['module'])){
