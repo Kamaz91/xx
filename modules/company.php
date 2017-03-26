@@ -19,7 +19,6 @@
           'type' => $query[0]['type'],
           'level' => $query[0]['level']
         ));
-        print '</div>';
         print '<div class="workers">';
           if($workers){
             print '<table>';
