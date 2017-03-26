@@ -13,12 +13,12 @@
 
 
       print '<div class="company">';
-        print '<div class="ownerInfo">';
-          print $owner[0]['nick'];
-        print '</div>';
-        print '<div class="companyInfo">';
-          print $query[0]['name'].'<br>';
-          print $query[0]['type'].' '.$query[0]['level'];;
+        loadHTML('templates/companyInfo',array(
+          'owner' => $owner[0]['nick'],
+          'name' => $query[0]['name'],
+          'type' => $query[0]['type'],
+          'level' => $query[0]['level']
+        ));
         print '</div>';
         print '<div class="workers">';
           if($workers){
@@ -32,14 +32,10 @@
               print '</td>';
               print '</tr>';
               foreach($workers as $w){
-                print '<tr>';
-                print '<td>';
-                  print $w['nick'];
-                print '</td>';
-                print '<td>';
-                  print 'TODO';
-                print '</td>';
-                print '</tr>';
+                loadHTML('templates/companyWorkers',array(
+                  'nick' => $w['nick'],
+                  'pay' => 'TODO'
+                ));
               }
             print '</table>';
           }

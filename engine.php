@@ -34,7 +34,7 @@
   }
   function loadSettings(){
     global $_SETTINGS;
-    $query = sql('SELECT `name`, `value` FROM :table WHERE 1', 'settings'); // WHERE 1... gotta love PDO right?
+    $query = sql('SELECT `name`, `value` FROM :table WHERE 1', 'settings'); // WHERE 1...
     if($query){
       foreach($query as $q){
         $_SETTINGS[$q['name']] = $q['value'];
@@ -59,6 +59,19 @@
     }
     else{
       error();
+    }
+  }
+  function loadHTML($file, $data = array()){
+    $fdata = file_get_contents('modulesHTML/'.$file.'.html', true);
+    if(!empty($data)){
+      foreach($data as $key => $value){
+        $tag = "[@$key]";
+        $fdata = str_replace($tag,$value,$fdata);
+      }
+      echo $fdata;
+    }
+    else{
+      echo $fdata;
     }
   }
 ?>
