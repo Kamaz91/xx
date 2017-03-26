@@ -74,4 +74,18 @@
       echo $fdata;
     }
   }
+  function calculateStr($ratio = 1, $base = 50){
+    if($ratio === 1){
+      return $base;
+    }
+    elseif($ratio > 1 && $ratio < 2){
+      return $base *= 2;
+    }
+    elseif($ratio >= 2 && $ratio < 3){
+      return $base *= 3;
+    }
+    elseif($ratio >= 3){
+      return $base *= 4;
+    }
+  }
 ?>
