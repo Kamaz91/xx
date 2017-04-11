@@ -14,7 +14,7 @@
         'xp' => $xp
       ));
       if($up){
-        loadHTML('templates/trained',array(
+        loadTemplate('templates/trained',array(
           'str' => $str,
           'message' => 'You have trained'
         ));
@@ -24,12 +24,12 @@
       }
     }
     elseif($data[0]['train'] == 0){
-      loadHTML('templates/trainForm',array(
+      loadTemplate('templates/trainForm',array(
         'str' => $str
       ));
     }
     else{
-      loadHTML('templates/trained',array(
+      loadTemplate('templates/trained',array(
         'str' => $str,
         'message' => 'You have already trained today'
       ));//TODO: Make the template look properly

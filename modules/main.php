@@ -1,5 +1,12 @@
 <?php
   if(isset($_SESSION['ID'])){
+    loadTemplate('templates/main',array(
+      'news' => loadNews(),
+      'battles' => loadBattles(),
+      'shout' => loadShout(),
+      'quickInfo' => loadInfo()
+    ));
+    /*
     print '<div class="main">';
       print '<div class="news">';
         loadModule('newsList');
@@ -14,6 +21,7 @@
         loadModule('infoList');
       print '</div>';
     print '</div>';
+    */
   }
   else{
     error('loginError.html');

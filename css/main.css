@@ -29,9 +29,11 @@ body{
 }
 .news, .battles, .shout, .quickInfo{
   display: inline-block;
-  width: 50%;
+  width: 49.4%;
   min-height: 300px;
   vertical-align: top;
+  overflow: hidden;
+  word-break: break-all;
 }
 .login, .register{
   border: 1px solid #34812D;

@@ -13,7 +13,7 @@
 
 
       print '<div class="company">';
-        loadHTML('templates/companyInfo',array(
+        loadTemplate('templates/companyInfo',array(
           'owner' => $owner[0]['nick'],
           'name' => $query[0]['name'],
           'type' => $query[0]['type'],
@@ -22,16 +22,12 @@
         print '<div class="workers">';
           if($workers){
             print '<table>';
-              print '<tr>';
-              print '<td>';
-                print 'Nick';
-              print '</td>';
-              print '<td>';
-                print 'Mony';
-              print '</td>';
-              print '</tr>';
+              loadTemplate('templates/companyWorkers',array(
+                'nick' => 'Nick',
+                'pay' => 'Pay'
+              ));
               foreach($workers as $w){
-                loadHTML('templates/companyWorkers',array(
+                loadTemplate('templates/companyWorkers',array(
                   'nick' => $w['nick'],
                   'pay' => 'TODO'
                 ));

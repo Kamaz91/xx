@@ -67,17 +67,27 @@
       error();
     }
   }
-  function loadHTML($file, $data = array()){
+  function loadTemplate($file, $data = array(), $return = false){
     $fdata = file_get_contents('modulesHTML/'.$file.'.html', true);
     if(!empty($data)){
       foreach($data as $key => $value){
         $tag = "[@$key]";
         $fdata = str_replace($tag,$value,$fdata);
       }
-      echo $fdata;
+      if($return == true){
+        return $fdata;
+      }
+      else{
+        echo $fdata;
+      }
     }
     else{
-      echo $fdata;
+      if($return == true){
+        return $fdata;
+      }
+      else{
+        echo $fdata;
+      }
     }
   }
   function calculateStr($ratio = 1, $base = 50){
@@ -93,5 +103,21 @@
     elseif($ratio >= 3){
       return $base *= 4;
     }
+  }
+  function loadShout(){
+    $html = 'Shout';
+    return $html;
+  }
+  function loadBattles(){
+    $html = 'Battles';
+    return $html;
+  }
+  function loadNews(){
+    $html = 'News';
+    return $html;
+  }
+  function loadInfo(){
+    $html = 'Info';
+    return $html;
   }
 ?>
