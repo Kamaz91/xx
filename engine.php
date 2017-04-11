@@ -22,6 +22,9 @@
   }
   function listModules(){
     global $_MODULES;
+    if(!empty($_MODULES)){
+      $_MODULES = array();
+    }
     $query = sql('SELECT `name` FROM :table WHERE `enabled` = :enabled', 'modules', array('enabled' => 1));
     if($query){
       foreach($query as $q){
@@ -34,6 +37,9 @@
   }
   function loadSettings(){
     global $_SETTINGS;
+    if(!empty($_SETTINGS)){
+      $_SETTINGS = array();
+    }
     $query = sql('SELECT `name`, `value` FROM :table WHERE 1', 'settings'); // WHERE 1...
     if($query){
       foreach($query as $q){
