@@ -105,19 +105,35 @@
     }
   }
   function loadShout(){
-    $html = 'Shout';
+    // Maybe I can use the loadTemplate function to incorporate the data from the database into a nice local template?
+		$shouts = sql('SELECT `content`,`author`,`time` FROM :table LIMIT 10','shouts');
+		$shoutHTML = '';
+		foreach($shouts as $s){
+			$author = sql('SELECT `nick`,`avatar` FROM :table WHERE `id` = :id','users',array(
+				'id' => $s['author']
+			));
+			$shoutHTML .= loadTemplate('templates/shoutTemplate',array(
+				'content' => $s['content'],
+				'time' => $s['time'],
+				'avatar' => $author[0]['avatar'],
+				'nick' => $author[0]['nick']
+			),true);
+		}
+    $html = loadTemplate('templates/shoutSystem',array(
+			'shouts' => $shoutHTML
+		),true);
     return $html;
   }
   function loadBattles(){
-    $html = 'Battles';
+    $html = '';
     return $html;
   }
   function loadNews(){
-    $html = 'News';
+    $html = '';
     return $html;
   }
   function loadInfo(){
-    $html = 'Info';
+    $html = '';
     return $html;
   }
 ?>
