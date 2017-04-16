@@ -50,6 +50,20 @@
       error();
     }
   }
+	function loadUserData($id){
+		$query = sql('SELECT `nick`,`usrgroup`,`country`,`xp`,`lvl`,`eco`,`str`,`food`,`med`,`damage` FROM :table WHERE `id` = :id','users',array(
+			'id' => $id
+		));
+		if($query){
+			$query = $query[0];
+			foreach($query as $key => $value){
+				$_SESSION[$key] = $value;
+			}
+		}
+		else{
+			error();
+		}
+	}
   function maintenanceCheck(){
     $query = sql('SELECT `value` FROM :table WHERE `name` = :name','settings',array(
       'name' => 'maintenance'
@@ -105,34 +119,59 @@
     }
   }
   function loadShout(){
-    // Maybe I can use the loadTemplate function to incorporate the data from the database into a nice local template?
+    // Table is there... some refining needed with the template but works
 		$shouts = sql('SELECT `content`,`author`,`time` FROM :table LIMIT 10','shouts');
 		$shoutHTML = '';
-		foreach($shouts as $s){
-			$author = sql('SELECT `nick`,`avatar` FROM :table WHERE `id` = :id','users',array(
-				'id' => $s['author']
-			));
-			$shoutHTML .= loadTemplate('templates/shoutTemplate',array(
-				'content' => $s['content'],
-				'time' => $s['time'],
-				'avatar' => $author[0]['avatar'],
-				'nick' => $author[0]['nick']
-			),true);
+		if($shouts){
+			foreach($shouts as $s){
+				$author = sql('SELECT `nick`,`avatar` FROM :table WHERE `id` = :id','users',array(
+					'id' => $s['author']
+				));
+				$shoutHTML .= loadTemplate('templates/shoutTemplate',array(
+					'content' => $s['content'],
+					'time' => $s['time'],
+					'avatar' => $author[0]['avatar'],
+					'nick' => $author[0]['nick']
+				),true);
+			}
+		}
+		else{
+			$shoutHTML = 'No shouts available';
 		}
     $html = loadTemplate('templates/shoutSystem',array(
 			'shouts' => $shoutHTML
 		),true);
     return $html;
   }
-  function loadBattles(){
+  function loadBattles($country){
     $html = '';
     return $html;
   }
   function loadNews(){
-    $html = '';
+		//Table needed
+    $query = sql('SELECT `title`,`votes`,`author`,`time` FROM :table ORDER BY `votes` DESC LIMIT 10','news');
+		$html = '';
+		if($query){
+			foreach($query as $news){
+				$author = sql('SELECT `nick` FROM :table WHERE `id` = :id','users',array(
+					'id' => $news['author']
+				));
+				$html .= loadTemplate('template/news',array(
+					'title' => $news['title'],
+					'votes' => $news['votes'],
+					'author' => $author[0]['nick'],
+					'time' => $news['time']
+				),1);
+			}
+		}
+		else{
+			$html = 'No news available';
+		}
     return $html;
   }
   function loadInfo(){
+		// Table needed
+		//$query = sql('SELECT `event`, `time` FROM :table LIMIT 10','events');
     $html = '';
     return $html;
   }

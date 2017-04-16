@@ -6,6 +6,7 @@
     ));
     if($query){
       $_SESSION['ID'] = $query[0]['id'];
+			loadUserData($query[0]['id']);
       loadModule('main');
     }
     else{

@@ -2,7 +2,7 @@
   if(isset($_SESSION['ID'])){
     loadTemplate('templates/main',array(
       'news' => loadNews(),
-      'battles' => loadBattles(),
+      'battles' => loadBattles($_SESSION['country']),
       'shout' => loadShout(),
       'quickInfo' => loadInfo()
     ));
