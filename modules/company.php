@@ -11,35 +11,28 @@
         'company' => $_GET['id']
       ));
 
-
-      print '<div class="company">';
-        loadTemplate('templates/companyInfo',array(
-          'owner' => $owner[0]['nick'],
-          'name' => $query[0]['name'],
-          'type' => $query[0]['type'],
-          'level' => $query[0]['level']
-        ));
-        print '<div class="workers">';
-          if($workers){
-            print '<table>';
-              loadTemplate('templates/companyWorkers',array(
-                'nick' => 'Nick',
-                'pay' => 'Pay'
-              ));
-              foreach($workers as $w){
-                loadTemplate('templates/companyWorkers',array(
-                  'nick' => $w['nick'],
-                  'pay' => 'TODO'
-                ));
-              }
-            print '</table>';
-          }
-          else{
-            print 'There are no workers';
-          }
-        print '</div>';
-      print '</div>';
-
+      $infoHTML = loadTemplate('templates/companyInfo',array(
+        'owner' => $owner[0]['nick'],
+        'name' => $query[0]['name'],
+        'type' => $query[0]['type'],
+        'level' => $query[0]['level']
+      ),1);
+			$workersHTML = '';
+      if($workers){
+        foreach($workers as $w){
+        	$workersHTML .= loadTemplate('templates/companyWorkers',array(
+        	'nick' => $w['nick'],
+        	'pay' => 'TODO'
+        	),1);
+        }
+      }
+      else{
+        $workersHTML = 'There are no workers';
+      }
+			loadTemplate('templates/company',array(
+				'companyInfo' => $infoHTML,
+				'workers' => $workersHTML
+			));
       if($_SESSION['ID'] === $query[0]['owner']){
         print '<div class="manage">';
           print 'Manage me plez oh great master';
