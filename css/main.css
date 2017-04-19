@@ -1,99 +1,99 @@
 body{
-  margin: 0;
-  padding: 0;
-  background: #34812D;
+	margin: 0;
+	padding: 0;
+	background: #34812D;
 }
 .container{
-  margin: auto;
-  padding: 10px;
-  width: 80%;
-  position: relative;
-  top: 90px;
-  background: #202020;
-  color: #DADADA;
-  z-index: 1;
+	margin: auto;
+	padding: 10px;
+	width: 80%;
+	position: relative;
+	top: 90px;
+	background: #202020;
+	color: #DADADA;
+	z-index: 1;
 }
 .matrioshka{
-  position: relative;
-  width: 83%;
-  display: inline-block;
+	position: relative;
+	width: 83%;
+	display: inline-block;
 }
 .main{
-  display: inline-block;
-  width: 100%;
+	display: inline-block;
+	width: 100%;
 }
 .stats{
-  display: inline-block;
-  width: 17%;
-  vertical-align: top;
+	display: inline-block;
+	width: 17%;
+	vertical-align: top;
 }
 .news, .battles, .shout, .quickInfo{
-  display: inline-block;
-  width: 49.4%;
-  min-height: 300px;
-  vertical-align: top;
-  overflow: hidden;
-  word-break: break-all;
+	display: inline-block;
+	width: 49.4%;
+	min-height: 300px;
+	vertical-align: top;
+	overflow: hidden;
+	word-break: break-all;
 }
 .login, .register{
-  border: 1px solid #34812D;
-  margin: auto;
-  position: relative;
-  width: 30%;
-  margin-top: 10px;
-  padding: 5px;
+	border: 1px solid #34812D;
+	margin: auto;
+	position: relative;
+	width: 30%;
+	margin-top: 10px;
+	padding: 5px;
 }
 span.center{
-  display: block;
-  width: 100%;
-  margin-top: 6px;
-  text-align: center;
+	display: block;
+	width: 100%;
+	margin-top: 6px;
+	text-align: center;
 }
 span.center input[type="submit"]{
-  width: 20%;
+	width: 20%;
 }
 span.right, span.left{
-  display: inline-block;
-  width: 49%;
-  padding: 0px;
+	display: inline-block;
+	width: 49%;
+	padding: 0px;
 }
 span.right input{
-  width: 100%;
+	width: 100%;
 }
 .success{
-  background: #31B404;
+	background: #31B404;
 }
 .error{
-  background: #FA5858;
+	background: #FA5858;
 }
 .error, .success{
-  width: 30%;
-  text-align: center;
-  margin: auto;
-  text-anchor: middle;
-  padding: 3px;
+	width: 30%;
+	text-align: center;
+	margin: auto;
+	text-anchor: middle;
+	padding: 3px;
 }
 .manage, .company{
-  border: 1px solid #34812D;
-  width: 98%;
-  position: relative;
-  display: inline-block;
-  margin: 2px;
-  padding: 3px;
+	border: 1px solid #34812D;
+	width: 98%;
+	position: relative;
+	display: inline-block;
+	margin: 2px;
+	padding: 3px;
 }
 .ownerInfo, .companyInfo{
-  position: relative;
-  display: inline-block;
-  width: 50%;
+	position: relative;
+	display: inline-block;
+	width: 50%;
 }
 .workers table, .workers td, .workers tr{
-  color: #DADADA;
-  border: 1px solid #DADADA;
+	color: #DADADA;
+	border: 1px solid #DADADA;
 }
 .workers{
-  margin: auto;
-  width: 100%;
+	margin: auto;
+	width: 100%;
 }
 .workers table{
-  margin-left: 50px;
+	margin-left: 50px;
 }

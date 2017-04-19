@@ -1,56 +1,56 @@
 .menu{
-  position: fixed;
-  width: 100%;
-  top:0px;
-  left:0px;
-  padding: 5px 3px 5px 3px;
-  background: #202020;
-  color: #DADADA;
-  z-index: 2;
+	position: fixed;
+	width: 100%;
+	top:0px;
+	left:0px;
+	padding: 5px 3px 5px 3px;
+	background: #202020;
+	color: #DADADA;
+	z-index: 2;
 }
 .menuItem{
-  position: relative;
-  display: inline-block;
-  margin: auto;
-  width: 10%;
-  height: 25px;
-  transition: 200ms;
-  text-align: center;
-  text-anchor: middle;
+	position: relative;
+	display: inline-block;
+	margin: auto;
+	width: 10%;
+	height: 25px;
+	transition: 200ms;
+	text-align: center;
+	text-anchor: middle;
 }
 .menuItem:hover, .menuItem a:hover{
-  color: #4780B9;
-  cursor: pointer;
+	color: #4780B9;
+	cursor: pointer;
 }
 .menuItem a{
-  color: #DADADA;
-  text-decoration: none;
-  transition: 200ms;
+	color: #DADADA;
+	text-decoration: none;
+	transition: 200ms;
 }
 .menus{
-  position: fixed;
-  width: 100%;
-  top: 35px;
-  margin-left: 10%;
+	position: fixed;
+	width: 100%;
+	top: 35px;
+	margin-left: 10%;
 }
 .menuList{
-  top: 25px;
-  position: absolute;
-  width: 100%;
-  background: #202020;
-  color: #DADADA;
-  border: 1px solid #4780B9;
-  border-top: 0px;
-  padding: 2px;
-  display: none;
-  transition: 200ms;
-  z-index: 3;
+	top: 25px;
+	position: absolute;
+	width: 100%;
+	background: #202020;
+	color: #DADADA;
+	border: 1px solid #4780B9;
+	border-top: 0px;
+	padding: 2px;
+	display: none;
+	transition: 200ms;
+	z-index: 3;
 }
 .menuItem:hover .menuList, .listItem:hover{
-  display: block;
+	display: block;
 }
 .listItem a{
-  display: block;
-  padding: 2px 0px 2px 0px;
+	display: block;
+	padding: 2px 0px 2px 0px;
 }
 
