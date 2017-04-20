@@ -7,10 +7,9 @@
 			$owner = sql('SELECT `nick` FROM :table WHERE `ID` = :id','users',array(
 				'id' => $query[0]['owner']
 			));
-			$workers = sql('SELECT `nick` FROM :table WHERE `company` = :company','users',array(
+			$workers = sql('SELECT `id`,`nick` FROM :table WHERE `company` = :company','users',array(
 				'company' => $_GET['id']
 			));
-
 			$infoHTML = loadTemplate('templates/companyInfo',array(
 				'owner' => $owner[0]['nick'],
 				'name' => $query[0]['name'],
@@ -20,9 +19,12 @@
 			$workersHTML = '';
 			if($workers){
 				foreach($workers as $w){
+					$pay = sql('SELECT `salary`,`currency` FROM :table WHERE `usrid` = :id',$_GET['id'].'_workers',array(
+						'id' => $w['id']
+					));
 					$workersHTML .= loadTemplate('templates/companyWorkers',array(
 					'nick' => $w['nick'],
-					'pay' => 'TODO'
+					'pay' => $pay[0]['salary'].' '.$pay[0]['currency']
 					),1);
 				}
 			}
