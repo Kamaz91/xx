@@ -8,7 +8,8 @@
 		),1);
 		$tableName = $company.'_workers';
 		$companyTable = sql('CREATE TABLE :table (`usrid` int(11) NOT NULL, `salary` double NOT NULL, `currency` text COLLATE utf8_bin NOT NULL)',$tableName);
-		if($companyTable){
+		$key = sql('ALTER TABLE :table ADD PRIMARY KEY (`usrid`)',$tableName);
+		if($companyTable && $key){
 			print 'done';
 		}
 		else{
