@@ -14,6 +14,12 @@
 				'pass' => hash('sha256', $_POST['pass']),
 				'day' => $_SETTINGS['day'],
 				'country' => $_POST['country']
+			),true);
+			$currency = sql('INSERT INTO :table (`usrid`) VALUES (:id)','currency',array(
+				'id' => $register
+			));
+			$items = sql('INSERT INTO :table (`usrid`) VALUES (:id)','items',array(
+				'id' => $register
 			));
 			if($register){
 				include('modulesHTML/regSuccess.html');

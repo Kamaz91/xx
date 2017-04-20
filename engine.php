@@ -51,13 +51,31 @@
 		}
 	}
 	function loadUserData($id){
-		$query = sql('SELECT `nick`,`usrgroup`,`country`,`xp`,`lvl`,`eco`,`str`,`food`,`med`,`damage` FROM :table WHERE `id` = :id','users',array(
+		$data = sql('SELECT `nick`,`usrgroup`,`country`,`xp`,`lvl`,`eco`,`str`,`food`,`med`,`damage` FROM :table WHERE `id` = :id','users',array(
 			'id' => $id
 		));
-		if($query){
-			$query = $query[0];
-			foreach($query as $key => $value){
+		if($data){
+			$data = $data[0];
+			foreach($data as $key => $value){
 				$_SESSION[$key] = $value;
+			}
+			$items = sql('SELECT * FROM :table WHERE `usrid` = :id','items',array(
+				'id' => $id
+			));
+			$items = $items[0];
+			foreach($items as $key => $value){
+				if($key != 'usrid'){
+					$_SESSION['items'][$key] = $value;
+				}
+			}
+			$currency = sql('SELECT * FROM :table WHERE `usrid` = :id','currency',array(
+				'id' => $id
+			));
+			$currency = $currency[0];
+			foreach($currency as $key => $value){
+				if($key != 'usrid'){
+					$_SESSION['currency'][$key] = $value;
+				}
 			}
 		}
 		else{
