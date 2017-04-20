@@ -1,4 +1,6 @@
 <?php
+	global $_SETTINGS;
+
 	if(isset($_GET['id']) && !empty($_GET['id'])){
 		$query = sql('SELECT * FROM :table WHERE `id` = :id','company',array(
 			'id' => $_GET['id']
@@ -36,9 +38,14 @@
 				'workers' => $workersHTML
 			));
 			if($_SESSION['ID'] === $query[0]['owner']){
-				print '<div class="manage">';
-					print 'Manage me plez oh great master';
-				print '</div>';
+				$currencies = '';
+				foreach($_SETTINGS['currencyTypes'] as $c){
+					$currencies .= "<option value='$c'>$c</option>";
+				}
+				loadTemplate('templates/companyManagement',array(
+					'id' => $_GET['id'],
+					'currencies' => $currencies
+				));
 			}
 		}
 		else{
