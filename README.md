@@ -6,5 +6,5 @@ Since almost nobody from the staff of E-Sim cares about the original game I deci
 Hi Railman.
 
 Used Libraries:  
-siTools.js (License: Apache License, Version 2.0)  Author: Michał Sieciechowicz (http://michal.freev.net/)
+siTools.js (License: Apache License, Version 2.0)  Author: Michał Sieciechowicz (http://michal.freev.net/)  
 siBase.php (License: Apache License, Version 2.0)  Author: Michał Sieciechowicz (http://michal.freev.net/)
