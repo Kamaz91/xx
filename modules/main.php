@@ -8,7 +8,7 @@
 		));
 	}
 	else{
-		error('loginError.html');
+		error('Error: You must be logged in to access this page');
 		loadModule('login');
 	}
 ?>

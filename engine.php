@@ -8,8 +8,10 @@
 	$_MODULES = array();
 	$_SETTINGS = array();
 
-	function error($n = 'error.html'){
-		include('modulesHTML/error/'.$n);
+	function error($message = 'Something went wrong'){
+		loadTemplate('templates/error',array(
+			'message' => $message
+		));
 	}
 	function loadModule($name){
 		global $_MODULES;
@@ -88,7 +90,7 @@
 		));
 		if($query){
 			if($query[0]['value'] == 1){
-				error('maintenance.html');
+				error('Game is in maintenance mode. Please come back later');
 				return true;
 			}
 			else{

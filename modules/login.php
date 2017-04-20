@@ -10,7 +10,7 @@
 			loadModule('main');
 		}
 		else{
-			print 'wrong password or login';
+			error('Wrong password or login');
 		}
 	}
 	else{

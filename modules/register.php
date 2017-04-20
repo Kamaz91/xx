@@ -1,10 +1,10 @@
 <?php
 	if(isset($_POST['nick']) && isset($_POST['email']) && isset($_POST['pass'])){
 		if(strlen($_POST['nick']) < 3){
-			error('nickShort.html');
+			error('Nickname is too short');
 		}
 		elseif(strlen($_POST['pass']) < 5){
-			error('passShort.html');
+			error('Password is too short');
 		}
 		else{
 			global $_SETTINGS;
@@ -25,7 +25,7 @@
 				include('modulesHTML/regSuccess.html');
 			}
 			else{
-				error('unableToReg.html');
+				error();
 			}
 		}
 	}
