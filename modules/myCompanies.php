@@ -18,7 +18,7 @@
 		$types .= "<option value=$comp>$comp</option>";
 	}
 	loadTemplate('templates/myCompanies',array(
-			'companies' => 'You have no companies',
+			'companies' => $html,
 			'types' => $types
-		));
+	));
 ?>
