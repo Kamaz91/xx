@@ -45,7 +45,12 @@
 		$query = sql('SELECT `name`, `value` FROM :table WHERE 1', 'settings'); // WHERE 1...
 		if($query){
 			foreach($query as $q){
-				$_SETTINGS[$q['name']] = $q['value'];
+				if($q['name'] === 'companyTypes'){
+					$_SETTINGS[$q['name']] = explode(',',$q['value']);
+				}
+				else{
+					$_SETTINGS[$q['name']] = $q['value'];
+				}
 			}
 		}
 		else{
