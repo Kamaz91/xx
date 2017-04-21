@@ -97,3 +97,7 @@ span.right input{
 .workers table{
 	margin-left: 50px;
 }
+table, td, tr {
+	color: #DADADA;
+	border: 1px white solid;
+}
