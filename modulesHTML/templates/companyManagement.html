@@ -2,10 +2,12 @@
 	<h3>Add a new job offer</h3>
 	<form action="?module=postJobOffer" method="POST">
 		<input type="hidden" name="id" value="[@id]">
-		<input type="number" name="salary">
-		<select name="currency">
+		Salary: <input type="number" name="salary">
+		Currency: <select name="currency">
 			[@currencies]
 		</select>
+		Skill level: <input type="number" name="skill">
+		Quantity: <input type="number" name="quantity">
 		<input type="submit" value="Send">
 	</form>
 	<h3>Upgrade the company</h3>
@@ -16,7 +18,7 @@
 	<h3>Sell the company</h3>
 	<form action="?module=sellCompany" method="POST">
 		<input type="hidden" name="id" value="[@id]">
-		<input type="number" name="price">
+		Price: <input type="number" name="price">
 		<input type="submit" value="Sell on market">
 	</form>
 </div>
