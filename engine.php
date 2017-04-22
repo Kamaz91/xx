@@ -45,8 +45,14 @@
 		$query = sql('SELECT `name`, `value` FROM :table WHERE 1', 'settings'); // WHERE 1...
 		if($query){
 			foreach($query as $q){
-				if($q['name'] === 'companyTypes' || $q['name'] === 'currencyTypes'){
+				if($q['name'] === 'currencyTypes'){
 					$_SETTINGS[$q['name']] = explode(',',$q['value']);
+				}
+				elseif($q['name'] === 'companyTypesRaw'){
+					$_SETTINGS['companyTypes']['raw'] = explode(',',$q['value']);
+				}
+				elseif($q['name'] === 'companyTypesProduce'){
+					$_SETTINGS['companyTypes']['produce'] = explode(',',$q['value']);
 				}
 				else{
 					$_SETTINGS[$q['name']] = $q['value'];
@@ -58,7 +64,7 @@
 		}
 	}
 	function loadUserData($id){
-		$data = sql('SELECT `nick`,`usrgroup`,`country`,`xp`,`lvl`,`eco`,`str`,`food`,`med`,`damage` FROM :table WHERE `id` = :id','users',array(
+		$data = sql('SELECT `nick`,`usrgroup`,`country`,`xp`,`lvl`,`eco`,`str`,`food`,`med`,`damage`,`company`,`mu`,`work`,`train` FROM :table WHERE `id` = :id','users',array(
 			'id' => $id
 		));
 		if($data){
@@ -144,6 +150,9 @@
 			return $base *= 4;
 		}
 	}
+	function calculateEco($eco = 1, $base = 1){
+		return $base * (1/floor($eco));
+	}
 	function loadShout(){
 		// Table is there... some refining needed with the template but works
 		$shouts = sql('SELECT `content`,`author`,`time` FROM :table LIMIT 10','shouts');
@@ -200,5 +209,9 @@
 		//$query = sql('SELECT `event`, `time` FROM :table LIMIT 10','events');
 		$html = '';
 		return $html;
+	}
+	function calculateProduction($level, $eco){
+		$production = round((1 + ($level / 10)) * $eco * 15);
+		return $production;
 	}
 ?>
