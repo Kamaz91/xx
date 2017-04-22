@@ -14,8 +14,10 @@
 		$html = 'You have no companies';
 	}
 	$types = '';
-	foreach($_SETTINGS['companyTypes'] as $comp){
-		$types .= "<option value=$comp>$comp</option>";
+	foreach($_SETTINGS['companyTypes'] as $type){
+		foreach($type as $comp){
+			$types .= "<option value=$comp>$comp</option>";
+		}
 	}
 	loadTemplate('templates/myCompanies',array(
 			'companies' => $html,
