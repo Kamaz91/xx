@@ -13,16 +13,16 @@
 	loadModule('stats');
 		print '<div class="matrioshka">';
 			if(maintenanceCheck() == false){
-				if(isset($_GET['module'])){
-					loadModule($_GET['module']);
-				}
-				else{
-					if(isset($_SESSION['ID'])){
-						loadModule('main');
+				if(isset($_SESSION['ID'])){
+					if(isset($_GET['module'])){
+						loadModule($_GET['module']);
 					}
 					else{
-						loadModule('login');
+						loadModule('main');
 					}
+				}
+				else{
+					loadModule('login');
 				}
 			}
 		print '</div>';
