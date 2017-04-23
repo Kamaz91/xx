@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Czas generowania: 21 Kwi 2017, 18:58
+-- Czas generowania: 23 Kwi 2017, 16:09
 -- Wersja serwera: 10.1.22-MariaDB
 -- Wersja PHP: 7.1.4
 
@@ -65,14 +65,6 @@ CREATE TABLE `country` (
   `isocode` text COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
---
--- Zrzut danych tabeli `country`
---
-
-INSERT INTO `country` (`ID`, `name`, `isocode`) VALUES
-(1, 'Poland', 'PL'),
-(2, 'United States of America', 'USA');
-
 -- --------------------------------------------------------
 
 --
@@ -94,16 +86,30 @@ CREATE TABLE `currency` (
 
 CREATE TABLE `items` (
   `usrid` int(11) NOT NULL,
+  `grain` int(11) NOT NULL DEFAULT '0',
   `foodq1` int(11) NOT NULL DEFAULT '0',
   `foodq2` int(11) NOT NULL DEFAULT '0',
   `foodq3` int(11) NOT NULL DEFAULT '0',
   `foodq4` int(11) NOT NULL DEFAULT '0',
   `foodq5` int(11) NOT NULL DEFAULT '0',
+  `chemicals` int(11) NOT NULL DEFAULT '0',
   `medkitq1` int(11) NOT NULL DEFAULT '0',
   `medkitq2` int(11) NOT NULL DEFAULT '0',
   `medkitq3` int(11) NOT NULL DEFAULT '0',
   `medkitq4` int(11) NOT NULL DEFAULT '0',
-  `medkitq5` int(11) NOT NULL DEFAULT '0'
+  `medkitq5` int(11) NOT NULL DEFAULT '0',
+  `iron` int(11) NOT NULL DEFAULT '0',
+  `weaponq1` int(11) NOT NULL DEFAULT '0',
+  `weaponq2` int(11) NOT NULL DEFAULT '0',
+  `weaponq3` int(11) NOT NULL DEFAULT '0',
+  `weaponq4` int(11) NOT NULL DEFAULT '0',
+  `weaponq5` int(11) NOT NULL DEFAULT '0',
+  `oil` int(11) NOT NULL DEFAULT '0',
+  `ticketq1` int(11) NOT NULL DEFAULT '0',
+  `ticketq2` int(11) NOT NULL DEFAULT '0',
+  `ticketq3` int(11) NOT NULL DEFAULT '0',
+  `ticketq4` int(11) NOT NULL DEFAULT '0',
+  `ticketq5` int(11) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
@@ -149,7 +155,8 @@ INSERT INTO `modules` (`ID`, `name`, `enabled`) VALUES
 (13, 'myCompanies', 1),
 (14, 'postJobOffer', 1),
 (15, 'jobMarket', 1),
-(16, 'applyForWork', 1);
+(16, 'applyForWork', 1),
+(17, 'work', 1);
 
 -- --------------------------------------------------------
 
@@ -185,8 +192,9 @@ CREATE TABLE `settings` (
 INSERT INTO `settings` (`ID`, `name`, `value`) VALUES
 (1, 'day', '1'),
 (2, 'maintenance', '0'),
-(3, 'companyTypes', 'iron,grain,weapon,food,oil,ticket,chemicals,medkit'),
-(4, 'currencyTypes', 'gold,usd,pln');
+(4, 'currencyTypes', 'gold,usd,pln'),
+(5, 'companyTypesRaw', 'iron,grain,oil,chemicals'),
+(6, 'companyTypesProduce', 'weapon,food,ticket,medkit');
 
 -- --------------------------------------------------------
 
@@ -327,7 +335,7 @@ ALTER TABLE `jobOffers`
 -- AUTO_INCREMENT dla tabeli `modules`
 --
 ALTER TABLE `modules`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 --
 -- AUTO_INCREMENT dla tabeli `news`
 --
@@ -337,7 +345,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT dla tabeli `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT dla tabeli `shouts`
 --
