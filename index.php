@@ -8,6 +8,10 @@
 	listModules();
 	loadSettings();
 
+	if(isset($_SESSION['ID'])){
+		loadUserData($_SESSION['ID']);
+	}
+
 	include('modulesHTML/menu.html');
 	print '<div class="container">';
 	loadModule('stats');

@@ -236,6 +236,5 @@
 			'ammount' => $ammount,
 			'id' => $from
 		));
-		loadUserData();
 	}
 ?>
