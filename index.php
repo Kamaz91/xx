@@ -26,7 +26,12 @@
 					}
 				}
 				else{
-					loadModule('login');
+					if($_GET['module'] === 'register'){
+						loadModule('register');
+					}
+					else{
+						loadModule('login');
+					}
 				}
 			}
 		print '</div>';
