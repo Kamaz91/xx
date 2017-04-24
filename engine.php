@@ -95,6 +95,17 @@
 			error();
 		}
 	}
+	function updateUserData($data){
+		$update = array();
+		foreach($data as $key => $value){
+			$_SESSION[$key] = $value;
+			$update[] = '`'.$key.'` = '.$value;
+		}
+		$update = implode(', ', $update);
+		$updateQuery = sql('UPDATE :table SET '.$update.' WHERE `ID` = :id','users',array(
+			'id' => $_SESSION['ID']
+		));
+	}
 	function maintenanceCheck(){
 		$query = sql('SELECT `value` FROM :table WHERE `name` = :name','settings',array(
 			'name' => 'maintenance'
@@ -153,6 +164,9 @@
 	function calculateEco($eco = 1, $base = 1){
 		return $base * (1/floor($eco));
 	}
+	function calculateProduction($level, $eco){
+		return round((1 + ($level / 10)) * $eco * 15);
+	}
 	function loadShout(){
 		// Table is there... some refining needed with the template but works
 		$shouts = sql('SELECT `content`,`author`,`time` FROM :table LIMIT 10','shouts');
@@ -210,8 +224,18 @@
 		$html = '';
 		return $html;
 	}
-	function calculateProduction($level, $eco){
-		$production = round((1 + ($level / 10)) * $eco * 15);
-		return $production;
+	function pay($from, $to, $ammount, $currency){
+		if($from === $_SESSION['ID']){
+			$_SESSION['currency'][$currency] -= $ammount;
+		}
+		$add = sql('UPDATE :table SET `'.$currency.'` = `'.$currency.'` + :ammount WHERE `usrid` = :id','currency',array(
+			'ammount' => $ammount,
+			'id' => $to
+		));
+		$substract = sql('UPDATE :table SET `'.$currency.'` = `'.$currency.'` - :ammount WHERE `usrid` = :id','currency',array(
+			'ammount' => $ammount,
+			'id' => $from
+		));
+		loadUserData();
 	}
 ?>
