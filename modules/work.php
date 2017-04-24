@@ -44,23 +44,26 @@
 					}
 					else{
 						error('Your employer doesn\'t have enough raw materials');
+						$update = FALSE;
 					}
 				}
 				else{
 					error();
 				}
-				pay($company['owner'],$_SESSION['ID'],$salary['salary'],$salary['currency']);
-				updateUserData(array(
-					'eco' => $_SESSION['eco'] + calculateEco($_SESSION['eco'],1),
-					'xp' => $_SESSION['xp'] + 5,
-					'work' => 1
-				));
-				loadTemplate('templates/worked',array(
-					'name' => $company['name'],
-					'type' => ucfirst($company['type']),
-					'level' => 'level '.$company['level'],
-					'message' => 'You have worked today'
-				));
+				if($update){
+					pay($company['owner'],$_SESSION['ID'],$salary['salary'],$salary['currency']);
+					updateUserData(array(
+						'eco' => $_SESSION['eco'] + calculateEco($_SESSION['eco'],1),
+						'xp' => $_SESSION['xp'] + 5,
+						'work' => 1
+					));
+					loadTemplate('templates/worked',array(
+						'name' => $company['name'],
+						'type' => ucfirst($company['type']),
+						'level' => 'level '.$company['level'],
+						'message' => 'You have worked today'
+					));
+				}
 			}
 			else{
 				error('Your employer doesn\'t have enough money');
