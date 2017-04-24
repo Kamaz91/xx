@@ -1,6 +1,6 @@
 <?php
 	global $_SETTINGS;
-	if(in_array($_POST['type'],$_SETTINGS['companyTypes'])){
+	if(in_array($_POST['type'],$_SETTINGS['companyTypes']['raw']) || in_array($_POST['type'],$_SETTINGS['companyTypes']['produce'])){
 		$company = sql('INSERT INTO :table (`name`,`type`,`owner`) VALUES (:name,:type,:owner)','company',array(
 			'name' => $_POST['name'],
 			'type' => $_POST['type'],
