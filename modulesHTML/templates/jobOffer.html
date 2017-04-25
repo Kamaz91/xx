@@ -9,6 +9,9 @@
 		[@skill]
 	</td>
 	<td>
-		<a href="?module=applyForWork&id=[@id]">Apply</a>
+		<form action="?module=applyForWork" method="POST">
+			<input type="hidden" name="id" value=[@id]>
+			<input type="submit" value="Apply for work">
+		</form>
 	</td>
 </tr>

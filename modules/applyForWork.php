@@ -1,8 +1,8 @@
 <?php
 	if($_SESSION['company'] == NULL){
-		if(!empty($_GET['id'])){
+		if(!empty($_POST['id'])){
 			$offer = sql('SELECT * FROM :table WHERE `ID` = :id','jobOffers',array(
-				'id' => $_GET['id']
+				'id' => $_POST['id']
 			))[0];
 			if($offer){
 				if($_SESSION['eco'] >= $offer['skill']){
@@ -19,7 +19,7 @@
 						$count = $offer['quantity'] - 1;
 						if($count == 0){
 							$delete = sql('DELETE FROM :table WHERE `ID` = :id','jobOffers',array(
-								'id' => $_GET['id']
+								'id' => $_POST['id']
 							));
 							if($delete){
 								print 'done';
@@ -31,7 +31,7 @@
 						else{
 							$update = sql('UPDATE :table SET `quantity` = :q WHERE `ID` = :id','jobOffers',array(
 								'q' => $count,
-								'id' => $_GET['id']
+								'id' => $_POST['id']
 							));
 							if($update){
 								print 'done';
