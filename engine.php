@@ -228,10 +228,12 @@
 		if($from === $_SESSION['ID']){
 			$_SESSION['currency'][$currency] -= $ammount;
 		}
-		$add = sql('UPDATE :table SET `'.$currency.'` = `'.$currency.'` + :ammount WHERE `usrid` = :id','currency',array(
-			'ammount' => $ammount,
-			'id' => $to
-		));
+		if($to != 'server'){
+			$add = sql('UPDATE :table SET `'.$currency.'` = `'.$currency.'` + :ammount WHERE `usrid` = :id','currency',array(
+				'ammount' => $ammount,
+				'id' => $to
+			));
+		}
 		$substract = sql('UPDATE :table SET `'.$currency.'` = `'.$currency.'` - :ammount WHERE `usrid` = :id','currency',array(
 			'ammount' => $ammount,
 			'id' => $from
