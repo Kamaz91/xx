@@ -8,7 +8,7 @@
 	listModules();
 	loadSettings();
 
-	if(isset($_SESSION['ID'])){
+	if(!empty($_SESSION['ID'])){
 		loadUserData($_SESSION['ID']);
 	}
 
@@ -17,8 +17,8 @@
 	loadModule('stats');
 		print '<div class="matrioshka">';
 			if(maintenanceCheck() == false){
-				if(isset($_SESSION['ID'])){
-					if(isset($_GET['module'])){
+				if(!empty($_SESSION['ID'])){
+					if(!empty($_GET['module'])){
 						loadModule($_GET['module']);
 					}
 					else{
